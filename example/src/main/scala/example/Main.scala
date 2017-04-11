@@ -8,3 +8,4 @@ import example.Lists._
 object Main extends App {
   println(max(List[Int](1, 3, 4)))
 }
+

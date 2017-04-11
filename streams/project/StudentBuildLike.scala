@@ -16,7 +16,7 @@ case class MapMapString (val map: Map[String, Map[String, String]])
   */
 class StudentBuildLike protected() extends CommonBuild {
 
-  lazy val fpds_example = project.in(file(".")).settings(
+  lazy val fpds_streams = project.in(file(".")).settings(
     course := "",
     assignment := "",
     submitSetting,
@@ -24,7 +24,7 @@ class StudentBuildLike protected() extends CommonBuild {
     commonSourcePackages := Seq(), // see build.sbt
     courseId := "",
     styleCheckSetting,
-    libraryDependencies += "ch.epfl.lamp" % "scala-grading-runtime_2.11" % "0.3"
+    libraryDependencies += scalaTestDependency
   ).settings(packageSubmissionFiles: _*)
 
   /** **********************************************************

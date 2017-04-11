@@ -25,4 +25,5 @@ assignmentsMap := {
       styleScoreRatio = 0.2,
       styleSheet = styleSheetPath)
   )
+
 }
