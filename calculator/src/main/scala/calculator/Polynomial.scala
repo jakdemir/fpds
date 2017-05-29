@@ -1,18 +1,26 @@
 package calculator
 
-object Polynomial {
-  def computeDelta(a: Signal[Double], b: Signal[Double],
-      c: Signal[Double]): Signal[Double] = {
-		Signal(b() * b() - 4 * a() * c())
-  }
+import com.sun.xml.internal.ws.resources.StreamingMessages
 
-  def computeSolutions(a: Signal[Double], b: Signal[Double],
-      c: Signal[Double], delta: Signal[Double]): Signal[Set[Double]] = {
+object Polynomial {
+	def computeDelta(a: Signal[Double], b: Signal[Double],
+		c: Signal[Double]): Signal[Double] = {
+		Signal((b() * b()) - (4 * a() * c()))
+	}
+
+	def computeSolutions(a: Signal[Double], b: Signal[Double],
+		c: Signal[Double], delta: Signal[Double]): Signal[Set[Double]] = {
+
 		Signal {
-			Set[Double] (
-				(-b() - Math.sqrt(computeDelta(a, b, c)())) / (2 * a()),
-				(-b() + Math.sqrt(computeDelta(a, b, c)())) / (2 * a())
-			)
+			if (delta() < 0) {
+				Set[Double]()
+			} else {
+				Set[Double](
+					(-b() - Math.sqrt(delta())) / (2 * a()),
+					(-b() + Math.sqrt(delta())) / (2 * a())
+				)
+
+			}
 		}
-  }
+	}
 }
