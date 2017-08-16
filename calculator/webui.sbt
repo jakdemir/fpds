@@ -4,7 +4,7 @@ lazy val webUI = project.in(file("web-ui")).
     scalaVersion := "2.11.6",
     // Add the sources of the calculator project
     unmanagedSourceDirectories in Compile +=
-      (scalaSource in (root, Compile)).value / "calculator",
+      (scalaSource in (fpds_calculator, Compile)).value / "calculator",
     libraryDependencies += "org.scala-js" %%% "scalajs-dom" % "0.8.0",
     persistLauncher := true
   )
